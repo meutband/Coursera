@@ -22,7 +22,7 @@ library(data.table) was used for analysis.
 ### Names of the features in the resulting files
 
 These signals were used to estimate variables of the feature vector for each pattern:
-‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions - the X,Y, and Z axes.
+- ‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions, the X,Y, and Z axes.
 
 | Features  | Description |
 | --------- | ----------- |

@@ -19,30 +19,32 @@ library(data.table) was used for analysis.
 5) The alldata data.table was aggregated to the mean by acitivities and subjects. The export of the aggregated table is here https://github.com/meutband/datasciencecoursera/blob/master/GettingandCleaningData/meandata.txt
 
 
-### columns is the resulting files
+### Names of the features in the resulting files
 
 These signals were used to estimate variables of the feature vector for each pattern:
 ‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions - the X,Y, and Z axes.
 
 | Features  | Description |
 | --------- | ----------- |
-| tBodyAcc-XYZ | Time for acceleration of body  |
-| tGravityAcc-XYZ  | Time of acceleration of gravity |
-| tBodyAccJerk-XYZ | Time of body acceleration jerk  |
-| tBodyGyro-XYZ | Body gyroscope measurement |
-| tBodyGyroJerk-XYZ | Jerk signal of body |
-| tBodyAccMag | Magnitude of body |
-| tGravityAccMag  | Gravity acceleration magnitude  |
-| tBodyAccJerkMag | Magnitude of body acceleration jerk |
-- tBodyGyroMag
-- tBodyGyroJerkMag
-- fBodyAcc-XYZ
-- fBodyAccJerk-XYZ
-- fBodyGyro-XYZ
-- fBodyAccMag
-- fBodyAccJerkMag
-- fBodyGyroMag
-- fBodyGyroJerkMag
+| tbodyacc-XYZ | Time for acceleration of body  |
+| tgravityacc-XYZ  | Time of acceleration of gravity |
+| tbodyaccjerk-XYZ | Time of body acceleration jerk  |
+| tbodygyro-XYZ | Body gyroscope measurement |
+| tbodygyrojerk-XYZ | Jerk signal of body |
+| tbodyaccmag | Magnitude of body |
+| tgravityaccmag  | Gravity acceleration magnitude  |
+| tbodyaccjerkmag | Magnitude of body acceleration jerk |
+| tbodygyromag  | Magnitude of body gyroscope measurement |
+| tbodygyrojerkmag  | Magnitude of body body gyroscope jerk measurement |
+| fbodyacc-XYZ  | Frequency of body acceleration  |
+| fbodyaccjerk-XYZ  | Frequency of body accerlation jerk  |
+| fbodygyro-XYZ | Frequency of body gyroscope measurement |
+| fbodyaccmag | Frequency of body acceleration magnitude  |
+| fbodybodyaccjerkmag |  Frequency of body acceleration jerk magnitude  |
+| fbodybodygyromag  | Frequency of magnitude of body gyroscope measurement  |
+| fbodybodygyrojerkmag  | Frequency of magnitude of body gyroscope jerk measurement |
+| activity (activities on meandata) | The activity performed |
+| subject | Subject ID  |
 
 The set of variables that were estimated from these signals are:
 - mean(): Mean value

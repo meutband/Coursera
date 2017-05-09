@@ -16,7 +16,7 @@ library(data.table) was used for analysis.
 
 #### meandata.txt
 
-4) The alldata data.table was aggregated to the mean by acitivities and subjects. The export of the aggregated table is here https://github.com/meutband/datasciencecoursera/blob/master/GettingandCleaningData/meandata.txt
+5) The alldata data.table was aggregated to the mean by acitivities and subjects. The export of the aggregated table is here https://github.com/meutband/datasciencecoursera/blob/master/GettingandCleaningData/meandata.txt
 
 
 ### columns is the resulting files
@@ -40,7 +40,9 @@ Description of abbreviations of measurements
 
 These signals were used to estimate variables of the feature vector for each pattern:
 ‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions - the X,Y, and Z axes.
-- tBodyAcc-XYZ
+| Features  | Description |
+| --------- | ----------- |
+|tBodyAcc-XYZ | Mean time for acceleration of body  |
 - tGravityAcc-XYZ
 - tBodyAccJerk-XYZ
 - tBodyGyro-XYZ

@@ -11,3 +11,8 @@ You should create one R script called run_analysis.R that does the following.
 - Appropriately labels the data set with descriptive variable names.
 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+#### Files in repository:
+- run_analysis.R : code for the analysis
+- alldata.txt : data values for all mean and standard deviation features
+- meandata.txt : data values for aggregated values
+- CodeBook.md : description of the code and features

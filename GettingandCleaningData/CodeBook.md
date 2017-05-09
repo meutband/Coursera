@@ -23,6 +23,7 @@ library(data.table) was used for analysis.
 
 These signals were used to estimate variables of the feature vector for each pattern:
 - ‘-XYZ’ is used to denote 3-axial signals in the X, Y and Z directions. They total 33 measurements including the 3 dimensions, the X,Y, and Z axes.
+- The mean and standard deviation were calculated for each feature
 
 | Features  | Description |
 | --------- | ----------- |
@@ -43,10 +44,7 @@ These signals were used to estimate variables of the feature vector for each pat
 | fbodybodyaccjerkmag |  Frequency of body acceleration jerk magnitude  |
 | fbodybodygyromag  | Frequency of magnitude of body gyroscope measurement  |
 | fbodybodygyrojerkmag  | Frequency of magnitude of body gyroscope jerk measurement |
+| --------- | ----------  |
 | activity (activities on meandata) | The activity performed |
 | subject | Subject ID  |
-
-The set of variables that were estimated from these signals are:
-- mean(): Mean value
-- std(): Standard deviation
 

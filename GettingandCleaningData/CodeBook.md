@@ -47,4 +47,3 @@ These signals were used to estimate variables of the feature vector for each pat
 | --------- | ----------  |
 | activity (activities on meandata) | The activity performed |
 | subject | Subject ID  |
-

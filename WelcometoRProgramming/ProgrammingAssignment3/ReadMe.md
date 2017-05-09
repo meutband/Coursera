@@ -1,1 +1,1 @@
-
+This is the 3rd and final programming assignment from the Welcome to R Programming course. The instructions for the assignment are found here https://github.com/meutband/datasciencecoursera/blob/master/WelcometoRProgramming/ProgrammingAssignment3/ProgAssignment3.pdf

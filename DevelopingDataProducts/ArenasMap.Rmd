@@ -1,0 +1,50 @@
+---
+title: "Sports Areana Map"
+author: "Mark Evans"
+output: html_document
+---
+
+## Assignment
+
+Create a web page using R Markdown that features a map created with Leaflet.
+
+### The Data
+
+For this assignment, I choose to map every sports arena for the 4 major sports, Baseball, Basketball, Football, and Hockey. I created the file myself.
+
+```{r}
+arenas <- read.csv('stadiums.csv', header=TRUE, stringsAsFactors=FALSE)
+head(arenas)
+```
+
+### The Map
+
+```{r, echo=TRUE}
+suppressWarnings(library(leaflet))
+
+## URLs are images of balls(puck) used for the sports, they will be icons on map
+baseballIcon <- makeIcon(iconUrl='https://goo.gl/ecNsZ5', iconWidth = 20, iconHeight = 20)
+basketballIcon <- makeIcon(iconUrl='https://goo.gl/YccE4p', iconWidth = 20, iconHeight = 20)
+footballIcon <- makeIcon(iconUrl='https://goo.gl/J1sgav', iconWidth = 20, iconHeight = 20)
+hockeyIcon <- makeIcon(iconUrl='https://goo.gl/m8swjn', iconWidth = 20, iconHeight = 20)
+
+## Subset the arena dataframe into each sport, for readability in the leaflet
+baseball <- subset(arenas, sport=="baseball")
+basketball <- subset(arenas, sport=="basketball")
+football <- subset(arenas, sport=="football")
+hockey <- subset(arenas, sport=="hockey")
+
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat=baseball$lat, lng=baseball$long,icon=baseballIcon,
+             label=paste(baseball$stadium,baseball$team,sep=', ')) %>%
+  addMarkers(lat=basketball$lat, lng=basketball$long,icon=basketballIcon,
+             label=paste(basketball$stadium,basketball$team,sep=', ')) %>%
+  addMarkers(lat=football$lat, lng=football$long,icon=footballIcon,
+             label=paste(football$stadium,football$team,sep=', ')) %>%
+  addMarkers(lat=hockey$lat, lng=hockey$long,icon=hockeyIcon,
+             label=paste(hockey$stadium,hockey$team,sep=', ')) 
+
+
+```
+

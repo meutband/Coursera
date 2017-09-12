@@ -10,7 +10,7 @@ BaltMD <- subset(NEI, fips=='24510')
 BaltByYear <- tapply(BaltMD$Emissions, BaltMD$year, sum)
 
 ## plot the total emisions against the year, save the plot as 'plot2.png'
-png("plot2.png")
+png("images/plot2.png")
 plot(names(BaltByYear), BaltByYear, type='l', xlab='Year', ylab='Total Emissions (tons)', 
      main='The Total Emissions of PM2.5 per Year in Baltimore Maryland (in tons)')
 dev.off()

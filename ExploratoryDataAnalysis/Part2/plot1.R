@@ -7,7 +7,7 @@ NEI <- readRDS("FNEI_data/summarySCC_PM25.rds")
 TotalByYear <- tapply(NEI$Emissions, NEI$year, sum)
 
 ## plot the total emisions against the year, save the plot as 'plot1.png'
-png("plot1.png")
+png("images/plot1.png")
 plot(names(TotalByYear), TotalByYear, type='l', xlab='Year', ylab='Total Emissions (tons)', 
      main='The Total Emissions of PM2.5 per Year (in tons)')
 dev.off()

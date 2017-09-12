@@ -17,6 +17,6 @@ emissionsyear <- aggregate(Emissions ~ year, data=emissions, FUN=sum)
 ggplot(emissionsyear, aes(x=factor(year), y=Emissions)) +
   geom_bar(stat="identity") +
   labs(x="Year", y="Total PM2.5 Emissions", title="Emissions from coal combustion-related sources") +
-  ggsave('plot4.png')
+  ggsave('images/plot4.png')
 
 ## Emissions are decreasing between 1999 - 2008

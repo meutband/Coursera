@@ -1,0 +1,71 @@
+---
+title: "Statistical Inference Project Part 2"
+author: "Mark Evans"
+output: pdf_document
+---
+
+## Overview
+
+1. Load the ToothGrowth data and perform some basic exploratory data analyses. 
+2. Provide a basic summary of the data. 
+3. Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose. (Only use the techniques from class, even if there's other approaches worth considering) 
+4. State your conclusions and the assumptions needed for your conclusions. 
+
+### Load Datasets
+
+``` {r, echo=TRUE}
+
+library(datasets)
+data(ToothGrowth)
+tg <- ToothGrowth
+
+```
+
+### Basic Summary of Data
+
+``` {r, echo=TRUE}
+
+summary(tg)
+
+tg$dose <- as.factor(tg$dose)
+summary(tg)
+
+table(tg$supp, tg$dose)
+
+## Mean and Standard Deviation of the lengths
+c(mean(tg$len, na.rm=TRUE), sd(tg$len, na.rm=TRUE))
+
+## Create box plots of dose vs length faceted by supplement type
+suppressWarnings(library(ggplot2))
+ggplot(tg, aes(factor(dose), y=len, fill=factor(dose))) +
+  geom_boxplot() +
+  facet_grid(.~supp) +
+  labs(x='Dosage (Milligrams)', y='Tooth Growth') +
+  ggtitle('Effect of Dosage and Supplement Types on Tooth Growth')
+  
+```
+
+### Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose.
+
+``` {r, echo=TRUE}
+
+## Subset the tooth data into dosage groups
+tg05 <- subset(tg, tg$dose==.5)
+tg10 <- subset(tg, tg$dose==1)
+tg20 <- subset(tg, tg$dose==2)
+
+## Calculate t.test of tg05 subset
+t.test(len ~ supp, data = tg05)
+
+## Calculate t.test of tg10 subset
+t.test(len ~ supp, data = tg10)
+
+## Calculate t.test of tg20 subset
+t.test(len ~ supp, data = tg20)
+
+```
+
+### State your conclusions and the assumptions needed for your conclusions.
+
+- For dosage .5 and 1, OJ provided the most tooth growth.
+- For dosage 2, there is no significant difference between OJ than VC. 

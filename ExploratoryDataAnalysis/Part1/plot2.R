@@ -15,5 +15,5 @@ house$Date <- as.POSIXct(house$Date)
 
 #Create plot2
 plot(house$Global_active_power~house$Date, type="l", ylab="Global Active Power (kilowatts)", xlab="")
-dev.copy(png,"plot2.png", width=480, height=480)
+dev.copy(png,"images/plot2.png", width=480, height=480)
 dev.off()

@@ -34,5 +34,5 @@ with(house, {
   plot(Global_reactive_power~Date, type="l", ylab="Global Reactive Power (kilowatts)", xlab="")
   
 })
-dev.copy(png,"plot4.png", width=480, height=480)
+dev.copy(png,"images/plot4.png", width=480, height=480)
 dev.off()

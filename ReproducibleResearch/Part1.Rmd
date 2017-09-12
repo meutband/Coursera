@@ -1,0 +1,90 @@
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
+
+## Loading and preprocessing the data
+
+```{r}
+
+## Load the data
+activity <- read.csv('activity.csv', stringsAsFactors=FALSE)
+
+## Transform the data
+activity$date <- as.POSIXct(activity$date, format='%Y-%m-%d')
+```
+
+## What is mean total number of steps taken per day?
+
+```{r, echo=TRUE}
+
+sum_per_day <- aggregate(activity$steps, by=list(activity$date), FUN=sum, na.rm=TRUE)
+names(sum_per_day) <- c('date', 'steps')
+
+## Calculate the mean
+print(mean(sum_per_day$steps))
+## Calculate the median
+print(median(sum_per_day$steps))
+
+## Plot a histogram of the number of steps per day
+hist(sum_per_day$steps, breaks=seq(from=0, to=25000, by=2500), xlab="Total number of steps", 
+     ylim=c(0, 20), main="Total number of steps taken each day\n(NA removed)")
+```
+
+## What is the average daily activity pattern?
+
+```{r, echo=TRUE}
+
+mean_per_interval <- aggregate(activity$steps, by=list(activity$interval), FUN=mean, na.rm=TRUE)
+names(mean_per_interval) <- c('interval', 'steps')
+
+## Plot a time series of the number of steps per interval
+plot(mean_per_interval$interval, mean_per_interval$steps, type='l', xlab="Interval", ylab='Mean number of steps', 
+     main="Average number of steps taken by interval\n(NA removed)")
+```
+
+## Imputing missing values
+
+```{r, echo=TRUE}
+
+## Find the number of NaNs in the dataframe
+print(colSums(is.na(activity)))
+
+## Replace NaN values with the mean of the column
+mean_steps <- mean(activity$steps, na.rm=TRUE)
+activity[which(is.na(activity$steps)), ]$steps <- mean_steps
+
+
+sum_per_day2 <- aggregate(activity$steps, by=list(activity$date), FUN=sum, na.rm=TRUE)
+names(sum_per_day2) <- c('date', 'steps')
+
+## Calculate the mean
+print(mean(sum_per_day2$steps))
+## Calculate the median
+print(median(sum_per_day2$steps))
+
+## Plot a histogram of the number of steps per day
+hist(sum_per_day2$steps, breaks=seq(from=0, to=25000, by=2500), xlab="Total number of steps", 
+     ylim=c(0, 30), main="Total number of steps taken each day\n(NA replaced with the mean)")
+
+```
+
+## Are there differences in activity patterns between weekdays and weekends?
+
+```{r, echo=TRUE}
+
+library(lattice)
+
+## Create weekday/weekend column
+activity$day <- tolower(weekdays(activity$date))
+activity$daytype <- ifelse(activity$day %in% c('saturday','sunday'), 'weekend', 'weekday')
+
+## Create time series plot of number of steps per interval, faceted by weekday/weekend
+mean_per_interval2 <- aggregate(activity$steps, by=list(activity$daytype, activity$interval), FUN=mean)
+names(mean_per_interval2) <- c('daytype', 'interval', 'steps')
+
+xyplot(steps ~ interval | daytype, data=mean_per_interval2, 
+       type='l', xlab='Interval', ylab='Mean Number of Steps', layout=c(1,2))
+```

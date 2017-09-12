@@ -1,0 +1,61 @@
+---
+title: "Statistical Inference Project Part 1"
+author: Mark Evans
+output: pdf_document 
+---
+
+## Overview
+
+I will investigate the exponential distribution in R and compare it with the Central Limit Theorem. I will investigate the distribution of averages of 40 exponentials and a thousand simulations.
+
+### Gather exponential distribution and the means of the simulations. 
+
+``` {r, echo=TRUE}
+
+n = 40
+s = 1000
+lam = 0.2
+mns = NULL
+
+for (i in 1:s) {
+  
+  mns = c(mns, mean(rexp(40, lam)))
+  
+}
+
+head(mns)
+```
+
+### Sample Mean versus Theoretical Mean
+
+``` {r, echo=TRUE}
+
+print(sprintf('Theoretical Mean is %f', 1/lam))
+
+print(sprintf('Sample Mean of the distribution is %f', mean(mns)))
+
+```
+
+### Sample Variance versus Theoretical Variance
+
+``` {r, echo=TRUE}
+
+print(sprintf('Theoretical Variance is %f', (1/lam)^2))
+
+print(sprintf('Sample Variance of the distribution is %f', var(mns)*n))
+
+```
+
+### Distribution
+
+``` {r, echo=TRUE}
+suppressWarnings(library(ggplot2))
+
+ggplot(data.frame(x=mns), aes(x=x)) +
+  geom_histogram(position='identity', fill='blue', colour='black', binwidth=0.5, aes(y=..density..)) + 
+  stat_function(fun=dnorm, colour='red', args=list(mean=5)) +
+  scale_x_continuous(breaks=c(1, 2, 3, 4, 5, 6, 7, 8, 9), limits=c(1, 9)) +
+  scale_y_continuous(breaks=c()) +
+  labs(x = "Sample Mean", y = "Frequency", title="Distribution of Samle Means vs Normal Distribution")
+
+```

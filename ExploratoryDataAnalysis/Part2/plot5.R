@@ -13,6 +13,6 @@ baltemissions <- aggregate(Emissions ~ year, data=balt, FUN=sum)
 ggplot(baltemissions, aes(x=factor(year), y=Emissions)) +
   geom_bar(stat="identity") +
   labs(x="year", y="Total PM2.5 Emissions", title="Emissions from motor vehicle sources in Baltimore City") +
-  ggsave('plot5.png')
+  ggsave('images/plot5.png')
 
 ## Emissions are decreasing between 1999 - 2008

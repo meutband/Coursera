@@ -20,7 +20,7 @@ emissions <- rbind(bemissions, lemissions)
 ggplot(emissions, aes(x=factor(year), y=Emissions, fill=City)) +
   geom_bar(stat="identity") + facet_grid(.~City)
   labs(x="year", y="Total PM2.5 Emissions", title="Emissions from motor vehicle sources in Baltimore City") +
-  ggsave('plot6.png')
+  ggsave('images/plot6.png')
 
 ## Baltimore is decreasing for all years, Los Angeles is increasing between 1999 and 2005
 ## and then decreasing to 2008

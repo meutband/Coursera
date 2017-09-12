@@ -15,6 +15,6 @@ ggplot(BaltMD, aes(factor(year), Emissions, fill=type)) +
   geom_bar(stat = "identity") + facet_grid(.~type) +
   labs(x='Year', y='Total Emissions (tons)') + 
   labs(title='The Total Emissions of PM2.5 per Year in Baltimore Maryland by Type (in tons)') +
-  ggsave('plot3.png')
+  ggsave('images/plot3.png')
 
 ## All types decreased except for Point, which increased from 1999 to 2005, then decreased

@@ -8,5 +8,5 @@ house <- subset(house, Date >= as.Date('2007-02-01') & Date <= as.Date('2007-02-
 
 #Construct histogram, save as plot1.png
 hist(house$Global_active_power, main="Global Active Power", xlab = "Global Active Power (kilowatts)", col="red")
-dev.copy(png,"plot1.png", width=480, height=480)
+dev.copy(png,"images/plot1.png", width=480, height=480)
 dev.off()

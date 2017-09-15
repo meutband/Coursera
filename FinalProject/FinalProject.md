@@ -1,8 +1,7 @@
 John Hopkins University Coursera Capstone Final Project
 ========================================================
-author: Mark Evans
-date: September 9th, 2017
-autosize: true
+author: Mark Evans 
+date: September 9th, 2017 
 
 Overview
 ========================================================

@@ -29,8 +29,4 @@ About Me
 
 [Twitter](https://twitter.com/markhevans1)
 
-[Github](http://github.com/meutband)
-
 [RPubs](http://rpubs.com/meutband)
-
-- Will get the project on github over the next couple of days.
